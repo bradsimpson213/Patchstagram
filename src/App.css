@@ -1,5 +1,26 @@
+@font-face {
+  font-family: Billabong;
+  src: url(../public/Billabong.ttf);
+}
+
 .App {
   text-align: center;
+}
+
+.splash-header {
+  font-family: Billabong;
+  color: white;
+  font-size: 3em;
+  text-shadow: -1px -1px 0 #000, 
+  1px -1px 0 #000, 
+  -1px 1px 0 #000, 
+  1px 1px 0 #000;
+}
+
+.splash-detail {
+  font-family: Billabong;
+  font-size: 1em;
+  color: black;
 }
 
 .App-logo {
@@ -7,14 +28,14 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
-  background-color: #282c34;
+  background-color: lightblue;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
