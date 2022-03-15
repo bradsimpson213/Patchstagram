@@ -1,0 +1,47 @@
+
+.splash-container {
+    background-color: lightblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.splash-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+.splash-title {
+    font-family: Billabong;
+    color: white;
+    font-size: 3.5em;
+    text-shadow: -1px -1px 0 #000, 
+    1px -1px 0 #000, 
+    -1px 1px 0 #000, 
+    1px 1px 0 #000;
+}
+  
+.splash-detail {
+    font-family: Billabong;
+    font-size: 1.5em;
+    color: black;
+}
+
+.button-link {
+    color: black;
+    font-family: Helvetica;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    height: 1.6em;
+    width: 4em;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding-top: 10px;
+}
+  

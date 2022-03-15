@@ -1,12 +1,20 @@
+import { Link } from 'react-router-dom';
+import './index.css';
+
 
 const Landing = () => {
  return(
-    <div className="App">
-        <header className="App-header">
-            <h1 className="splash-header">Patchstagram</h1>
-            <img src="https://res.cloudinary.com/app-academy4/image/upload/v1647291502/Patchstagram/patch_hd_riobbp.png" className="App-logo" alt="logo" />
+    <div className="splash-container">
+        <div>
+            <h1 className="splash-title">Patchstagram</h1>
+            <img className="splash-logo" 
+                src="https://res.cloudinary.com/app-academy4/image/upload/v1647291502/Patchstagram/patch_hd_riobbp.png" 
+                alt="cat-logo" 
+            />
             <p className="splash-detail">The cat with so much to talk about, he needs his own social media site!</p>   
-        </header>
+        </div>
+        <Link className="button-link" 
+            to="/feed">Enter</Link>
     </div>
  )};
 
