@@ -4,7 +4,7 @@ import './index.css';
 
 
 const Landing = ({ users, setUser }) => {
-    const [selectedUser, setSelectedUser] = useState(users ? users[0] : '')
+    const [selectedUser, setSelectedUser] = useState(users ? users[0].fullName : '')
     const supersetUser = (val) => {
         setSelectedUser(val);
         setUser(val);
@@ -34,11 +34,10 @@ const Landing = ({ users, setUser }) => {
                     value={ selectedUser }
                 >
                     {users
-                        ? users.map((user, index) => (
-                            <option key={ index } value={ user.fullName }>{ user.fullName }</option>
+                        ? users.map((user) => (
+                            <option key={ user.id } value={ user.fullName }>{ user.fullName }</option>
                                 ))
                         : ""}
-                
                 </select>
             </div>
             <Link className="button-link" 
