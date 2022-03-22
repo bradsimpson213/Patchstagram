@@ -22,13 +22,25 @@ const user2 =
         age: 5,
     }
 
-const users = [user1, user2];
+const user3 = 
+    {
+        id: 3,
+        username: "brads213",
+        fullName: "Brad Simpson",
+        email: "brad@gmail.com",
+        passwod: "password",
+        profilePic: "https://ca.slack-edge.com/T03GU501J-USQFVK3GT-941e867a316f-512",
+        bio: "I am the father of 2 crazy cats",
+        age: 44,
+    }
+
+const users = [user1, user2, user3];
 
 
 const posts = [
     {
         id: 1,
-        title: "Napping Outside is always fun...",
+        caption: "Napping Outside is always fun...",
         author: user1,
         date: "3/17/22",
         image: "https://res.cloudinary.com/app-academy4/image/upload/v1647912033/Patchstagram/IMG_3394_fktg48.jpg",
@@ -36,7 +48,7 @@ const posts = [
     },
     {
         id: 2,
-        title: "Napping inside is pretty awesome too...",
+        caption: "Napping inside is pretty awesome too...",
         author: user1,
         date: "3/20/22",
         image: "https://res.cloudinary.com/app-academy4/image/upload/v1647912403/Patchstagram/64865942444__2B7B1A74-ECAF-4798-BEAB-D4890B7164C4_hnmowy.jpg",
@@ -44,11 +56,27 @@ const posts = [
     },
     {
         id: 3,
-        title: "I like my fish",
+        caption: "I like my fish",
         author: user2,
         date: "3/12/22",
         image: "https://res.cloudinary.com/app-academy4/image/upload/v1647912006/Patchstagram/IMG_3437_u2frrk.jpg",
         likes: 14,
+    },
+    {
+        id: 4,
+        caption: "Now THIS is a party!",
+        author: user1,
+        date: "3/2/22",
+        image: "https://res.cloudinary.com/app-academy4/image/upload/v1647912056/Patchstagram/IMG_3389_i6czzx.jpg",
+        likes: 11,
+    },
+    {
+        id: 5,
+        caption: "This punk stole my tent! ⛺️",
+        author: user2,
+        date: "2/18/22",
+        image: "https://res.cloudinary.com/app-academy4/image/upload/v1647912094/Patchstagram/IMG_3211_sy5wcy.jpg",
+        likes: 9,
     }
 ];
 

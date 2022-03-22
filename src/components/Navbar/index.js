@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { MdSearch, MdHomeFilled, MdOutlineAddBox, MdFavoriteBorder } from "react-icons/md";
+import { FaSearch, FaRegHeart, } from 'react-icons/fa';
+import { MdHomeFilled, MdOutlineAddBox } from 'react-icons/md';
 import './index.css';
 
 const Navbar = ({ user }) => {
@@ -16,7 +17,7 @@ const Navbar = ({ user }) => {
                     <h1 className="nav-title">Patchstagram</h1>
                 </div>
                 <div className="nav-search">
-                    <MdSearch className="nav-icon"/>
+                    <FaSearch className="nav-icon"/>
                     <input className="search-input" 
                         type="text" 
                         value={ search } 
@@ -31,7 +32,7 @@ const Navbar = ({ user }) => {
                         <MdOutlineAddBox className="nav-icon"/>
                     </NavLink>
                     <NavLink to="/">
-                        <MdFavoriteBorder className="nav-icon"/>
+                        <FaRegHeart className="nav-icon"/>
                     </NavLink>
                 </div>
                 <h2>{ user } is logged in!</h2>
