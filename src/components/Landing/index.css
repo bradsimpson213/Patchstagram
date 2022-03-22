@@ -1,13 +1,13 @@
 
 .splash-container {
     background-color: lightblue;
-    min-height: 100vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
-    font-size: calc(10px + 2vmin);
+    font-size: 2em;
     color: white;
 }
 
@@ -43,6 +43,7 @@
     border: 2px solid black;
     border-radius: 15px;
     padding-top: 10px;
+    margin-bottom: 35px;
 }
 
 .user-label {
@@ -62,6 +63,6 @@
     height: 1.6em;
     width: 4em;
     margin-top: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
   

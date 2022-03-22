@@ -1,5 +1,7 @@
 .feed-container {
+    height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 55px;
 }
