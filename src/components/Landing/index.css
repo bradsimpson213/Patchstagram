@@ -44,4 +44,24 @@
     border-radius: 15px;
     padding-top: 10px;
 }
+
+.user-label {
+    font-family: Billabong;
+    font-size: 1.2em;
+    color: black;
+    background-color: lightblue;
+    margin-right: 10px;
+}
+
+.user-selector {
+    font-family: Billabong;
+    font-size: 1em;
+    color: black;
+    background-color: lightblue;
+    border: 2px solid black;
+    height: 1.6em;
+    width: 4em;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
   

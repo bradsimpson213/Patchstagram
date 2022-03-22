@@ -3,9 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { MdSearch, MdHomeFilled, MdOutlineAddBox, MdFavoriteBorder } from "react-icons/md";
 import './index.css';
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
     const [search, setSearch ] = useState("Search");
-
     return(
         <div className="nav-container">
             <div className="nav-content-container">
@@ -17,6 +16,7 @@ const Navbar = () => {
                     <h1 className="nav-title">Patchstagram</h1>
                 </div>
                 <div className="nav-search">
+                    <MdSearch className="nav-icon"/>
                     <input className="search-input" 
                         type="text" 
                         value={ search } 
@@ -34,6 +34,7 @@ const Navbar = () => {
                         <MdFavoriteBorder className="nav-icon"/>
                     </NavLink>
                 </div>
+                <h2>{ user } is logged in!</h2>
             </div>
         </div>
 )};
