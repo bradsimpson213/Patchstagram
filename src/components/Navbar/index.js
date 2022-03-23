@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaSearch, FaRegHeart, } from 'react-icons/fa';
-import { MdHomeFilled, MdOutlineAddBox } from 'react-icons/md';
+import { FaSearch, FaRegHeart } from 'react-icons/fa';
+import { MdHomeFilled, MdOutlineAddBox, MdFeed } from 'react-icons/md';
 import './index.css';
 
 const Navbar = ({ user }) => {
@@ -28,8 +28,11 @@ const Navbar = ({ user }) => {
                     <NavLink to="/">
                         <MdHomeFilled className="nav-icon"/>
                     </NavLink>
-                    <NavLink to="/">
+                    <NavLink to="/newpost">
                         <MdOutlineAddBox className="nav-icon"/>
+                    </NavLink>
+                    <NavLink to="/feed">
+                        <MdFeed className="nav-icon"/>
                     </NavLink>
                     <NavLink to="/">
                         <FaRegHeart className="nav-icon"/>

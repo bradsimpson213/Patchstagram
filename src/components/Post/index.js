@@ -32,10 +32,13 @@ const Post = ({ postData }) => {
                     <MdMoreHoriz className="nav-icon" />
                 </div>
             </div>
-            <img 
-                className="post-image"
-                src={ postData.image } alt="post topic" 
-            />
+            { postData.image ?
+                <img 
+                    className="post-image"
+                    src={ postData.image } alt="post topic" 
+                /> :
+                ''
+            }
             <div className="post-box">
                 { liked ?
                     <FaHeart 
