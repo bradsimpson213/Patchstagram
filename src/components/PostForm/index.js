@@ -100,7 +100,7 @@ const PostForm = ({users, user, posts}) => {
                     <button className="button">Submit</button>
                 </form>
             </div>
-            <h2>Sample Post</h2>
+            <h2>What your new Post will look like...</h2>
             <Post postData={ newPost }/>
         </div>
 )};
