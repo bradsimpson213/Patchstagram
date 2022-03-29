@@ -16,7 +16,7 @@ const PostForm = ({users, user, posts}) => {
     const history = useHistory();
 
     const newPost = {
-        id: posts.lenght + 1,
+        id: posts.length + 1,
         caption,
         author: currentUser,
         date: new Date(),
