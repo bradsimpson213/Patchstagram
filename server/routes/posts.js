@@ -1,20 +1,31 @@
 const express = require('express');
-// const {  } = require('../db/models');
+const { Post, User } = require('../db/models');
 const router = express.Router();
-const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true })
 const { asyncHandler, mobValidator, authorize } = require('../utils');
 
 
+// GET All Posts
+router.get('/all', asyncHandler( async (req, res) => {
+    const posts = await Post.findAll({
+        include: [ { model: User }]
+    });   
+    res.json({ posts });
+}));
 
-// GET All Posts Route
-router.get('/', authorize, asyncHandler( async (req, res) => {
-    const mobs = await Mob.findAll({
-        order: [["name", "ASC"]]
-    });
-    const player = req.session.player;
-    res.render('mobs', { mobs, player });
-}))
+
+// GET All Posts for a user
+router.get('/:userId', asyncHandler( async (req, res) => {
+    const posts = await Post.findAll({
+        where: { author: req.params.id }, 
+        include: [{ model: User }],
+    });   
+    res.json({ posts });
+}));
+
+
+
+
+
 
 
 // GET New Mob Form Route
