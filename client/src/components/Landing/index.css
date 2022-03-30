@@ -65,4 +65,15 @@
     margin-top: 0px;
     margin-bottom: 20px;
 }
-  
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: row;
+    background-color: lightblue;
+}

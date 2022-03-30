@@ -16,7 +16,7 @@ router.get('/all', asyncHandler( async (req, res) => {
 // GET All Posts for a user
 router.get('/:userId', asyncHandler( async (req, res) => {
     const posts = await Post.findAll({
-        where: { author: req.params.id }, 
+        where: { author: parseInt(req.params.userId) }, 
         include: [{ model: User }],
     });   
     res.json({ posts });
@@ -28,17 +28,13 @@ router.get('/:userId', asyncHandler( async (req, res) => {
 
 
 
-// GET New Mob Form Route
-router.get('/new', csrfProtection, asyncHandler( async (req, res) => {
-    const biomes = await Biome.findAll()
-    const mob = {};
-    const errors =[];
-    res.render('mobform', { csrfToken: req.csrfToken(), biomes, mob, errors });
-}));
+
+
+
 
 
 // POST Create New Mob Route
-router.post('/new', csrfProtection, mobValidator, asyncHandler( async (req, res) => {
+router.post('/new', asyncHandler( async (req, res) => {
     const { name, about, image, hitPoints, biomeId, damage } = req.body
     if (req.errors.length < 1) {
         const setHostile = true ? req.body.hostile === "true" : false;

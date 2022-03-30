@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FaSearch, FaRegHeart } from 'react-icons/fa';
 import { MdHomeFilled, MdOutlineAddBox, MdFeed } from 'react-icons/md';
 import './index.css';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+    const user = useSelector((state) => state.userState.currentUser)
     const [search, setSearch ] = useState("Search");
     return(
         <div className="nav-container">
@@ -38,7 +40,7 @@ const Navbar = ({ user }) => {
                         <FaRegHeart className="nav-icon"/>
                     </NavLink>
                 </div>
-                <h2>{ user } is logged in!</h2>
+                <h2>{ user?.fullName } is logged in!</h2>
             </div>
         </div>
 )};
