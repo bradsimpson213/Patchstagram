@@ -1,4 +1,4 @@
-// import { users } from '../data'
+import { normalizeObj } from "./helpers";
 
 const GET_USERS = 'users/GET_USERS';
 const SET_CURRENT = 'users/SET_CURRENT';
@@ -20,7 +20,7 @@ export const setCurrentUser = (currentUser) => {
 
 
 // THUNKS
-export const get_all_users = () => async (dispatch) => {
+export const getAllUsers = () => async (dispatch) => {
     const response = await fetch("/users/all")
     if(response.ok){
         const { users } = await response.json();
@@ -30,18 +30,20 @@ export const get_all_users = () => async (dispatch) => {
     }
 };
 
+
 const initialState = {};
 
-
 const userReducer = (state = initialState, action) => {
-
+    let newState;
     switch (action.type) {
         case GET_USERS:
-            return { 
-                ...state, 
-                users: [...action.users] };
+            newState = { ...state };
+            newState.users = normalizeObj(action.users);
+            return newState
         case SET_CURRENT:
-            return { ...state, currentUser: action.currentUser }
+            newState = { ...state }
+            newState.currentUser = action.currentUser;
+            return newState 
         default:
             return state;
   }

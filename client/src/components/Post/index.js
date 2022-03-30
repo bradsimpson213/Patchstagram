@@ -6,6 +6,7 @@ import './index.css';
 const Post = ({ postData }) => {
     const [liked, setLiked] = useState(false)
     const [numLikes, setNumLikes] = useState(postData.likes)
+    const daysInfo = Math.ceil((new Date() - new Date(postData.createdAt))/(1000 * 3600 * 24));
 
     const addLike = () => {
         setLiked(!liked);
@@ -23,10 +24,10 @@ const Post = ({ postData }) => {
                 <div className="post-box">
                     <img 
                         className="profile-pic" 
-                        src={ postData.author.profilePic } 
+                        src={ postData.User.profilePic } 
                         alt="author's profile" 
                     />
-                    <h4>{ postData.author.username }</h4>
+                    <h4>{ postData.User.username }</h4>
                 </div>
                 <div>
                     <MdMoreHoriz className="nav-icon" />
@@ -58,8 +59,11 @@ const Post = ({ postData }) => {
                 <span>{ numLikes } likes</span>
             </div>
             <div className="post-box">
-                <span className="caption-username">{ postData.author.username }</span>
+                <span className="caption-username">{ postData.User.username }</span>
                 <span>{ postData.caption }</span>
+            </div>
+            <div className="post-box">
+            <span>{ daysInfo } DAYS AGO</span>
             </div>
 
         </div>

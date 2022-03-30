@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentUser } from '../../store/userReducer';
+import { getAllPosts } from '../../store/postReducer'
 import { useHistory } from 'react-router-dom';
 import './index.css';
 
@@ -8,12 +9,13 @@ import './index.css';
 const Landing = () => {
     const dispatch = useDispatch();
     const users = useSelector((state) => state.userState.users)
-    const [selectedUser, setSelectedUser] = useState(users[0] ? users : "")
+    const [selectedUser, setSelectedUser] = useState(1)
     const history = useHistory();
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(setCurrentUser(selectedUser));
+        dispatch(setCurrentUser(users[selectedUser]));
+        await dispatch(getAllPosts(users[selectedUser]));
         history.push("/feed");
     };
     
@@ -44,11 +46,10 @@ const Landing = () => {
                             onChange={e => setSelectedUser(e.target.value)}
                             value={ selectedUser }
                         >
-                            {users
-                                ? users.map((user) => (
-                                    <option key={ user.id } value={ user }>{ user.fullName }</option>
+                            {users && Object.values(users).map((user) => (
+                                    <option key={ user.id } value={ user.id }>{ user.fullName }</option>
                                         ))
-                                : ""}
+                            }
                         </select>
                     </div>
                     <button

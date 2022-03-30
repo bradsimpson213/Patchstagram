@@ -1,47 +1,42 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { createPost } from '../../store/postReducer';
 import { useHistory } from 'react-router-dom';
 import Post from '../Post';
 import './index.css';
 
 
-const PostForm = ({users, user, posts}) => {
+const PostForm = () => {
     // form state
     const [caption, setCaption] = useState('');
     const [image, setImage] = useState('');
     const [validationErrors, setValidationErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     // current user state
-    const [currentUser, setCurrentUser] = useState('');
-    // for our redirect on successful submit
+    const currentUser = useSelector((state) => state.userState.currentUser);
+    const dispatch = useDispatch();
     const history = useHistory();
 
-    const newPost = {
-        id: posts.length + 1,
-        caption,
-        author: currentUser,
-        date: new Date(),
-        image,
-        likes: 0 
-    };
-
-    const submitForm = (e) => {
+  
+    const submitForm = async (e) => {
         e.preventDefault();
 
         setHasSubmitted(true);
         if (validationErrors.length) return alert("Your Post has errors, cannot submit!");
+        
+        const newPost = {
+            caption,
+            author: currentUser.id,
+            image,
+        };
+        await dispatch(createPost(newPost));
 
-        posts.push(newPost);
         setCaption('');
         setImage('');
         setValidationErrors([]);
+        setHasSubmitted(false);
         history.push("/feed");
     }
-
-    useEffect(() => {
-        const foundUser = users.filter( ele => ele.fullName === user)
-        console.log(foundUser[0]);
-        setCurrentUser(foundUser[0]);
-    }, [])
 
     useEffect(() => {
         const errors = [];
@@ -100,8 +95,6 @@ const PostForm = ({users, user, posts}) => {
                     <button className="button">Submit</button>
                 </form>
             </div>
-            <h2>What your new Post will look like...</h2>
-            <Post postData={ newPost }/>
         </div>
 )};
 
